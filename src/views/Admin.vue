@@ -4,7 +4,6 @@
 
 <template>
     <p>Admin</p>
-  
 </template>
 
 <style scoped>

@@ -1,12 +1,14 @@
 <script setup>
-import Login from './components/Login.vue'
+import Login from './views/Login.vue'
+import Admin from './views/Admin.vue'
+
+
+
 
 </script>
 
 <template>
-
-    <Login />
-
+    <router-view />
 </template>
 
 <style scoped>
