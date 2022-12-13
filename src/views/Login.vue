@@ -27,7 +27,6 @@
     methods: {
       async login() {
         try {
-       
     
           this.$router.push("/admin");
     
