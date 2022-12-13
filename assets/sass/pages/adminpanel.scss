@@ -1,2 +1,54 @@
 @use "../vars";
 
+body{
+    overflow: visible;
+    background-color: vars.$color-heaven;
+    height: 100%;
+}
+
+.panel{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    ul{
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        
+        li{
+            display: block;
+            width:300px;
+            height: 450px;
+            margin: 30px;
+            border-radius: 35px;
+            position: relative;
+
+            .first{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                background-color: vars.$color-white;
+                border-top-left-radius: 35px;
+                border-top-right-radius: 35px;
+                z-index: 1;
+            }
+
+            .second{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                background-color: vars.$color-strawberry;
+                border-bottom-left-radius: 35px;
+                border-bottom-right-radius: 35px;
+                
+            }   
+        }
+
+    }
+}
