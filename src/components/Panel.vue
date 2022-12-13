@@ -2,7 +2,7 @@
     <div>
       <h1>My Donuts</h1>
       <ul>
-        <li v-for="donut in donuts" key="donut.id">
+        <li v-for="donut in donuts" key="donut.id" @click="goToPage(donut)">
             {{ donut.donut.user.name }}
             {{ donut.donut.user.email }}
         </li>
@@ -18,7 +18,7 @@
       }
     },
     created() {
-      fetch('http://localhost:3000/api/v1/donuts')
+      fetch('https://salmon-puffer-tie.cyclic.app/api/v1/donuts')
         .then(response => response.json())
         .then(data => {
             this.donuts = data;
@@ -27,7 +27,12 @@
         .catch(error => {
           console.error(error);
         });
+    },
+    methods: {
+    goToPage(donut) {
+        this.$router.push(`/donuts/${donut.id}`);
     }
+}
   }
   </script>
   
