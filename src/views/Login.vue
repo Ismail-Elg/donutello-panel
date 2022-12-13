@@ -35,20 +35,14 @@
           body: JSON.stringify({ name: this.username, password: this.password })
         });
         const data = await response.json();
+        console.log(data.token);
+        
+        // Store token in local storage
+        localStorage.setItem("token", data.token);
 
-        //check if the response is correct
-        if (data.status === "success") {
-        //   localStorage.setItem("token", data.token);
-        //   this.$router.push("/admin");
         this.$router.push("/admin");
-        } 
-        else{
-            console.log("Error "+ data.status);
-        }
-      } catch (error) {
-        // Handle failed login
-        console.log(error);
-   
+        } catch (error) {
+          console.log(error);
       }
       },
     },
