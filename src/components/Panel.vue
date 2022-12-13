@@ -30,7 +30,7 @@
     },
     methods: {
     goToPage(donut) {
-        this.$router.push(`/donuts/${donut.id}`);
+        this.$router.push(`/donuts/${donut._id}`);
     }
 }
   }
