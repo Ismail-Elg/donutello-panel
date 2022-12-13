@@ -4,7 +4,7 @@
 
 <template>
   <div class="container">
-    <div>
+    <div class="logo">
       <img src="logo.svg" alt="">
     </div>
     <h1>Aanmelden</h1>

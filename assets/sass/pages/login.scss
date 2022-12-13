@@ -4,4 +4,59 @@
     height: 100vh;
     width: 100%;
     background-color: vars.$color-heaven;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .logo{
+        img{
+            width: 110px;
+            position: absolute;
+            z-index: 100;
+            top: 10%;
+            left: calc(50% - 55px);
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        input{
+            width: 300px;
+            height: 40px;
+            border: none;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            font-size: 1.2rem;
+            font-family: "Dosis", sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+            color: vars.$color-white;
+            background-color: vars.$color-heaven;
+            border: 1px solid vars.$color-white;
+            &:focus{
+                outline: none;
+            }
+            &::placeholder{
+                color: vars.$color-white;
+                font-size: 1.2rem;
+                font-family: "Dosis", sans-serif;
+                font-weight: normal;
+                text-transform: uppercase;
+            }
+        }
+    }
+    button{
+        border: none;
+        text-decoration: none;
+        text-transform: uppercase;
+        color:  vars.$color-heaven;
+        font-size: 25px;
+        font-weight: 600;
+        padding: 15px 28px;
+        border-radius: 50px;
+        background-color: vars.$color-lemon;
+        margin-top: 20px;
+    }
 }
