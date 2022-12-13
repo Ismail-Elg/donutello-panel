@@ -27,16 +27,12 @@
     methods: {
       async login() {
         try {
-    
-         
-    
-      
-        const response = await fetch("/api/login", {
+        const response = await fetch("http://localhost:3000/api/v1/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ email: this.email, password: this.password })
+          body: JSON.stringify({ name: this.username, password: this.password })
         });
         const data = await response.json();
 
@@ -45,12 +41,14 @@
         //   localStorage.setItem("token", data.token);
         //   this.$router.push("/admin");
         this.$router.push("/admin");
-        } else {
-          this.error = data.message;
+        } 
+        else{
+            console.log("Error "+ data.status);
         }
-   
       } catch (error) {
         // Handle failed login
+        console.log(error);
+   
       }
       },
     },
