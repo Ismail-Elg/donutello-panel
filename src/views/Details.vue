@@ -255,6 +255,20 @@ export default {
                             donut.children[9].visible = true;
 
                         }
+
+
+                        let logoImg = data.donut.logo.img;
+                       
+                        let logoUrl = "https://res.cloudinary.com/dnriwao3w/image/upload/" + logoImg;
+                       
+                        
+                        const logoMaterial = new THREE.MeshBasicMaterial({
+                        map: new THREE.TextureLoader().load(logoUrl),
+                        color: 0xFFFFFF,
+                        });
+                        donut.children[7].material = logoMaterial;
+                        donut.children[8].material = logoMaterial;
+                        donut.children[9].material = logoMaterial;
                     })
 
                 scene.add(donut)
@@ -286,6 +300,8 @@ export default {
 
 
             renderer.render(scene, camera)
+        
+
 
             if (donut) {
                 donut.rotation.y += 0.001
