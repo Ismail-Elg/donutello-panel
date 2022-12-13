@@ -24,6 +24,20 @@ body{
             margin: 30px;
             border-radius: 35px;
             position: relative;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+
+            //li hover
+            &:hover{
+                transform: translateY(-20px);
+
+                //second
+                .second{
+                    color: vars.$color-strawberry;
+                    background-color: vars.$color-lemon;
+                }
+            }
+
 
             .first{
                 position: absolute;
@@ -46,9 +60,11 @@ body{
                 background-color: vars.$color-strawberry;
                 border-bottom-left-radius: 35px;
                 border-bottom-right-radius: 35px;
+                color: vars.$color-white;
+                transition: all 0.3s ease-in-out;
                 
                 .tekst{
-                    color: vars.$color-white;
+                    
                     font-size: 1.5rem;
                     font-family: "Dosis", sans-serif;
                     font-weight: normal;
