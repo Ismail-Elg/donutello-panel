@@ -1,0 +1,7 @@
+@use "../vars";
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-color: vars.$color-heaven;
+}
