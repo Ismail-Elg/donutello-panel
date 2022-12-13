@@ -1,0 +1,15 @@
+@use "../vars";
+
+html,
+body {
+  font-family: "Dosis", sans-serif;
+  line-height: 1.4;
+}
+
+h1{
+    font-size: 3rem;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: vars.$color-lemon;
+}

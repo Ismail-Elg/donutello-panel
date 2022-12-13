@@ -3,15 +3,15 @@
 </script>
 
 <template>
-  <div>
+  <div class="container">
+    <div class="logo">
+      <img src="logo.svg" alt="">
+    </div>
+    <h1>Aanmelden</h1>
     <form>
-      <label for="username">Username:</label>
-      <input type="text" id="username" v-model="username" />
-
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" />
-
-      <button @click.prevent="login">Login</button>
+      <input type="text" id="username" placeholder="Gebruiksnaam" v-model="username" />
+      <input type="password" id="password" placeholder="Wachtwoord" v-model="password" />
+      <button @click.prevent="login">Inloggen</button>
     </form>
   </div>
 </template>
@@ -27,7 +27,6 @@
     methods: {
       async login() {
         try {
-       
     
          
     
@@ -58,4 +57,8 @@
   };
 
 </script>
+
+<style lang="scss">
+
+</style>
 
