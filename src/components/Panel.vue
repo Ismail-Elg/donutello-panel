@@ -1,10 +1,13 @@
 <template>
-    <div>
-      <h1>My Donuts</h1>
+    <div class="panel">
       <ul>
         <li v-for="donut in donuts" key="donut.id" @click="goToPage(donut)">
+          <div class="first"></div>
+          <div class="second">
             {{ donut.donut.user.name }}
             {{ donut.donut.user.email }}
+          </div>
+            
         </li>
       </ul>
     </div>
@@ -36,3 +39,6 @@
   }
   </script>
   
+<style lang="scss">
+
+</style>
