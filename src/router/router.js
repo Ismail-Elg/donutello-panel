@@ -14,6 +14,10 @@ const router = createRouter({
             name: "Admin",
             component: () => import("../views/Admin.vue"),
         },
+        {
+            path: '/donuts/:id',
+            component: () => import("../views/Details.vue"),
+        }
     ],
 });
 
