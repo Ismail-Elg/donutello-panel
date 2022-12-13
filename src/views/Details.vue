@@ -59,7 +59,6 @@
       animate()
     },
     unmounted () {
-      document.getElementById('app').removeChild(renderer.domElement)
       window.location.reload()
     }
  
