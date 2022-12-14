@@ -27,7 +27,12 @@
     methods: {
       async login() {
         try {
-        const response = await fetch("https://salmon-puffer-tie.cyclic.app/api/v1/users", {
+          //check if input is empty
+          if (this.username === "" || this.password === "") {
+            throw new Error("Vul alle velden in");
+          }
+          else{
+            const response = await fetch("https://salmon-puffer-tie.cyclic.app/api/v1/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -41,11 +46,13 @@
         localStorage.setItem("token", data.token);
 
         this.$router.push("/admin");
-        } catch (error) {
+        } 
+        }
+        catch (error) {
           console.log(error);
-      }
-      },
-    },
+        }
+    }
+  },
   };
 
 </script>

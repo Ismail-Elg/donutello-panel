@@ -22,6 +22,13 @@ export default {
     if (typeof window !== 'undefined' && window.localStorage) {
       const token = localStorage.getItem('token')
 
+
+      if(token === undefined||token === null||token ==="undefined"){
+        //remove the token from local storage
+        localStorage.removeItem("token");
+        this.$router.push("/");
+      }
+
       if (token) {
         this.token = token
         console.log(token)
@@ -29,6 +36,9 @@ export default {
       else{
         this.$router.push("/");
       }
+    }
+    else{
+      this.$router.push("/");
     }
   }
 }
