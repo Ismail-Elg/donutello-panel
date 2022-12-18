@@ -25,19 +25,6 @@ body{
             border-radius: 35px;
             position: relative;
             transition: all 0.3s ease-in-out;
-            cursor: pointer;
-
-            //li hover
-            &:hover{
-                transform: translateY(-20px);
-
-                //second
-                .second{
-                    color: vars.$color-strawberry;
-                    background-color: vars.$color-lemon;
-                }
-            }
-
 
             .first{
                 position: absolute;
@@ -76,5 +63,75 @@ body{
             }   
         }
 
+    }
+    .status{
+        position: absolute;
+        bottom: 45px;
+        right: 10px;
+        
+        &__trigger{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: vars.$color-strawberry;
+            color: vars.$color-white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                color: vars.$color-white;
+                background-color: #aa1e52;
+            }
+            &:first-child{
+               background-image: url('../images/eye.svg');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &:nth-child(3){
+                background-image: url('../images/trash.svg');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &--new{
+                background-image: url('../images/new.svg');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &--progress{
+                background-image: url('../images/progress.svg');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &--done{
+                background-image: url('../images/done.svg');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            
+        }   
+    }
+    .show-status{
+        background-color: vars.$color-heaven;
+        color: vars.$color-white;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        border-radius: 50px;
+        width: 40%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        user-select: none;
     }
 }

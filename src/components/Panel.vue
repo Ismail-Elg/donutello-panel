@@ -1,18 +1,36 @@
 <template>
     <div class="panel">
       <ul>
-        <li v-for="donut in donuts" key="donut.id" @click="goToPage(donut)">
-            <div class="first" :style="{backgroundImage: 'url(https://res.cloudinary.com/dnriwao3w/image/upload/' + donut.donut.screenshot + ')' }"></div>
+        <li v-for="donut in donuts" key="donut.id">
+          <div class="first" :style="{backgroundImage: 'url(https://res.cloudinary.com/dnriwao3w/image/upload/' + donut.donut.screenshot + ')' }">
+          <div class="status">
+            <div class="status__trigger" @click="goToPage(donut)">
+              
+            </div>
+            <div class="status__trigger" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
+              
+            </div>
+            <div class="status__trigger">
+              
+            </div>
+          </div>
+          <div class="show-status">
+            {{ statusMessage(donut.donut.status) }}
+          </div>
+          </div>
           <div class="second">
             <div class="tekst">
               <div>
-                {{ donut.donut.user.name }}
+                name: {{ donut.donut.user.name }}
               </div>
               <div>
-                {{ donut.donut.user.email }}
+                email: {{ donut.donut.user.email }}
               </div>
               <div>
-                {{ donut.donut.user.phone }}
+                phone: {{ donut.donut.user.phone }}
+              </div>
+              <div>
+                message: {{ donut.donut.user.message }}
               </div>
             </div>
           </div>
@@ -35,7 +53,6 @@
         .then(data => {
             this.donuts = data;
             console.log(data);
-           
         })
         .catch(error => {
           console.error(error);
@@ -55,7 +72,59 @@
             .catch(error => {
             console.error(error);
             });
-    }
+    },
+    statusClass(status) {
+      if (status === 0) {
+        return 'status__trigger--new';
+      } else if (status === 1) {
+        return 'status__trigger--progress';
+      } else if (status === 2) {
+        return 'status__trigger--done';
+      }
+    },
+    statusMessage(status) {
+      if (status === 0) {
+        return 'new';
+      } else if (status === 1) {
+        return 'in progress';
+      } else if (status === 2) {
+        return 'done';
+      }
+    },
+    updateStatus(donut) {
+     
+      if (donut.donut.status === 0) {
+        donut.donut.status = 1;
+      } else if (donut.donut.status === 1) {
+        donut.donut.status = 2;
+      } else if (donut.donut.status === 2) {
+        donut.donut.status = 0;
+      }
+      
+      fetch(`https://salmon-puffer-tie.cyclic.app/api/v1/donuts/${donut._id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+        status: donut.donut.status,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+         
+          this.donuts = this.donuts.map(d => {
+            if (d.id === donut.id) {
+              return data;
+            }
+            return d;
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
 }
   }
   </script>
