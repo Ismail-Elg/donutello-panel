@@ -24,14 +24,30 @@ export default {
 
 
       if(token === undefined||token === null||token ==="undefined"){
-        //remove the token from local storage
         localStorage.removeItem("token");
         this.$router.push("/");
       }
-
+      if (token){
+        let validation = () => {
+          fetch("https://salmon-puffer-tie.cyclic.app/api/v1/users/validate", {
+            method: "POST",
+            body: { token: token},
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.status === "success") {
+              //check validation
+            }
+            else{
+             //check validation
+            }
+          })
+        }
+        validation()
+      }
       if (token) {
         this.token = token
-        console.log(token)
+        console.log(token+ " is the token")
       }
       else{
         this.$router.push("/");
@@ -40,6 +56,6 @@ export default {
     else{
       this.$router.push("/");
     }
-  }
+  },
 }
 </script>

@@ -14,6 +14,12 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
+    h1{
+     
+   
+        margin-bottom: 10px;
+
+    }
     .logo{
         img{
             width: 110px;
@@ -64,4 +70,14 @@ body{
         background-color: vars.$color-lemon;
         margin-top: 20px;
     }
+    .error{
+        display: none;
+        color: red;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        padding: 10px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+     
+}
 }
