@@ -101,29 +101,76 @@
         donut.donut.status = 0;
       }
       
-      fetch(`https://salmon-puffer-tie.cyclic.app/api/v1/donuts/${donut._id}`, {
-        method: 'PUT',
-        body: JSON.stringify({
-        status: donut.donut.status,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
+      // fetch(`https://salmon-puffer-tie.cyclic.app/api/v1/donuts/${donut._id}`, {
+      //   method: 'PUT',
+      //   body: JSON.stringify({
+      //   status: donut.donut.status,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // })
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
          
-          this.donuts = this.donuts.map(d => {
-            if (d.id === donut.id) {
-              return data;
-            }
-            return d;
-          });
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      //     this.donuts = this.donuts.map(d => {
+      //       if (d.id === donut.id) {
+      //         return data;
+      //       }
+      //       return d;
+      //     });
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
+     
+
+      fetch(`https://salmon-puffer-tie.cyclic.app/api/v1/donuts/${donut._id}`, {
+  method: 'PUT',
+  body: JSON.stringify({
+    dough:donut.donut.dough,
+    glaze: donut.donut.glaze,
+    pattern: {
+      type: donut.donut.pattern.type,
+      color: donut.donut.pattern.color,
+    },
+    topping:{
+      type: donut.donut.topping.type,
+      color: donut.donut.topping.color,
+    },
+    logo:{
+      type: donut.donut.logo.type,
+      img: donut.donut.logo.img,
+    },
+    screenshot: donut.donut.screenshot,
+    user:{
+      name: donut.donut.user.name,
+      email: donut.donut.user.email,
+      phone: donut.donut.user.phone,
+      message: donut.donut.user.message,
+    },
+    status: donut.donut.status,
+  }),
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+ 
+    this.donuts = this.donuts.map(d => {
+      if (d.id === donut.id) {
+        return data;
+      }
+      return d;
+    });
+  })
+  .catch(error => {
+    console.error(error);
+  });
     },
 }
   }
