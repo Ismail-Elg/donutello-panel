@@ -1,32 +1,37 @@
 @use "../vars";
 
-body{
+body {
     overflow: visible;
     background-color: vars.$color-heaven;
     height: 100%;
 }
 
-.panel{
+.panel {
     width: 100%;
     height: 100%;
     position: relative;
-    ul{
+    top: 0;
+    left: 0;
+
+    ul {
         position: absolute;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
-        
-        li{
+
+
+        li {
             display: block;
-            width:300px;
+            width: 300px;
             height: 450px;
             margin: 30px;
             border-radius: 35px;
             position: relative;
             transition: all 0.3s ease-in-out;
+            overflow: hidden;
 
-            .first{
+            .first {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -39,7 +44,7 @@ body{
                 background-size: cover;
             }
 
-            .second{
+            .second {
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -50,9 +55,9 @@ body{
                 border-bottom-right-radius: 35px;
                 color: vars.$color-white;
                 transition: all 0.3s ease-in-out;
-                
-                .tekst{
-                    
+
+                .tekst {
+
                     font-size: 1.5rem;
                     font-family: "Dosis", sans-serif;
                     font-weight: normal;
@@ -60,16 +65,18 @@ body{
                     z-index: 2;
                     padding: 1rem;
                 }
-            }   
+            }
         }
 
     }
-    .status{
+
+    .status {
         position: absolute;
         bottom: 45px;
         right: 10px;
-        
-        &__trigger{
+
+
+        &__trigger {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -81,44 +88,51 @@ body{
             cursor: pointer;
             margin-top: 10px;
             transition: all 0.2s ease-in-out;
-            &:hover{
+
+            &:hover {
                 color: vars.$color-white;
                 background-color: #aa1e52;
             }
-            &:first-child{
-               background-image: url('../images/eye.svg');
+
+            &:first-child {
+                background-image: url('../images/eye.svg');
                 background-size: 30px;
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            &:nth-child(3){
+
+            &:nth-child(3) {
                 background-image: url('../images/trash.svg');
                 background-size: 30px;
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            &--new{
+
+            &--new {
                 background-image: url('../images/new.svg');
                 background-size: 30px;
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            &--progress{
+
+            &--progress {
                 background-image: url('../images/progress.svg');
                 background-size: 30px;
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            &--done{
+
+            &--done {
                 background-image: url('../images/done.svg');
                 background-size: 30px;
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            
-        }   
+
+        }
     }
-    .show-status{
+
+    .show-status {
         background-color: vars.$color-heaven;
         color: vars.$color-white;
         transition: all 0.3s ease-in-out;
@@ -133,5 +147,83 @@ body{
         align-items: center;
         pointer-events: none;
         user-select: none;
+    }
+
+    &__confirm {
+        background-color: vars.$color-strawberry;
+        color: vars.$color-white;
+        z-index: 50;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+
+        &__input {
+            display: flex;
+            gap: 1rem;
+            margin-top: 20px;
+
+            input {
+
+                height: 50px;
+                border-radius: 50px;
+                border: none;
+                padding: 0 2rem;
+                font-size: 1rem;
+                font-family: "Dosis", sans-serif;
+                font-weight: bold;
+                color: vars.$color-strawberry;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                color: vars.$color-white;
+                cursor: pointer;
+
+                &:first-child {
+                    background-color: vars.$color-heaven;
+
+                    &:hover {
+                        background-color: #6baab9;
+                    }
+                }
+
+                &:last-child {
+                    background-color: vars.$color-lemon;
+                    color: vars.$color-strawberry;
+
+                    &:hover {
+                        background-color: #f7d400;
+                    }
+                }
+            }
+
+        }
+    }
+
+    @keyframes show {
+        0% {
+            top: 100%;
+        }
+
+        100% {
+            top: 0;
+        }
+
+    }
+    @keyframes hide {
+        0% {
+            top: 0;
+        }
+
+        100% {
+            top: 100%;
+        }
     }
 }
