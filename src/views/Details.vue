@@ -230,7 +230,7 @@ export default {
 
                         }
 
-                        //same for logo
+
                         if (data.donut.logo.type == 0) {
                             donut.children[7].visible = false;
                             donut.children[8].visible = false;
@@ -242,11 +242,17 @@ export default {
                             donut.children[8].visible = false;
                             donut.children[9].visible = false;
 
+
+
+
+
                         }
                         else if (data.donut.logo.type == 2) {
                             donut.children[7].visible = false;
                             donut.children[8].visible = true;
                             donut.children[9].visible = false;
+
+
 
                         }
                         else if (data.donut.logo.type == 3) {
@@ -258,17 +264,20 @@ export default {
 
 
                         let logoImg = data.donut.logo.img;
-                       
+
                         let logoUrl = "https://res.cloudinary.com/dnriwao3w/image/upload/" + logoImg;
-                       
-                        
+
+
                         const logoMaterial = new THREE.MeshBasicMaterial({
-                        map: new THREE.TextureLoader().load(logoUrl),
-                        color: 0xFFFFFF,
+                            map: new THREE.TextureLoader().load(logoUrl),
+                            color: 0xFFFFFF,
                         });
                         donut.children[7].material = logoMaterial;
                         donut.children[8].material = logoMaterial;
                         donut.children[9].material = logoMaterial;
+                        donut.children[7].material.map.flipY = false;
+                        donut.children[8].material.map.flipY = false;
+                        donut.children[9].material.map.flipY = false;
                     })
 
                 scene.add(donut)
@@ -300,7 +309,7 @@ export default {
 
 
             renderer.render(scene, camera)
-        
+
 
 
             if (donut) {
