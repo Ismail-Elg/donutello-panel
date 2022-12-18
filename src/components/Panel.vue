@@ -150,6 +150,10 @@ export default {
             }
             return d;
           });
+
+          //refresh the page now that the status has been updated
+          location.reload();
+          
         })
         .catch(error => {
           console.error(error);
