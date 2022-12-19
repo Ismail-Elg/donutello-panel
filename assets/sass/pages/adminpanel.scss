@@ -58,10 +58,10 @@ body {
 
                 .tekst {
 
-                    font-size: 1.5rem;
-                    font-family: "Dosis", sans-serif;
+                    font-size: 1rem;
+                    font-family: "Lato", sans-serif;
                     font-weight: normal;
-                    text-transform: uppercase;
+
                     z-index: 2;
                     padding: 1rem;
                 }
@@ -132,6 +132,13 @@ body {
         }
     }
 
+    .trigger2{
+        background-color: vars.$color-lemon;
+    }
+
+    .trigger2:hover{
+        background-color: #ddd71b;
+    }
     .show-status {
         background-color: vars.$color-heaven;
         color: vars.$color-white;

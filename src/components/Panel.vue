@@ -9,7 +9,7 @@
             <div class="status__trigger" @click="goToPage(donut)">
 
             </div>
-            <div class="status__trigger" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
+            <div class="status__trigger trigger2" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
 
             </div>
             <div class="status__trigger" @click="triggerConfirm()">
@@ -23,16 +23,16 @@
         <div class="second">
           <div class="tekst">
             <div>
-              name: {{ donut.donut.user.name }}
+              Name: {{ donut.donut.user.name }}
             </div>
             <div>
-              email: {{ donut.donut.user.email }}
+              Email: {{ donut.donut.user.email }}
             </div>
             <div>
-              phone: {{ donut.donut.user.phone }}
+              Phone: {{ donut.donut.user.phone }}
             </div>
             <div>
-              message: {{ donut.donut.user.message }}
+              Message: {{ donut.donut.user.message }}
             </div>
           </div>
         </div>
