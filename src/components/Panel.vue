@@ -1,4 +1,23 @@
 <template>
+  <nav>
+    <div class="nav__logo">
+      <img src="logo2.svg" alt="logo2">
+    </div>
+    <div class="nav__title">
+      <div class="h2">
+        <a href="">Configurator</a>
+      </div>
+      <div class="h1">
+        Donutello Panel
+      </div>
+      <div class="h2">
+        <a href="">Wachtwoord wijzigen</a>
+      </div>
+    </div>
+    <div class="nav__logout">
+      <router-link to="/login"><i class="fa fa-sign-out"></i></router-link>
+    </div>
+  </nav>
   <div class="panel">
     <ul>
       <li v-for="donut in donuts" key="donut.id">
