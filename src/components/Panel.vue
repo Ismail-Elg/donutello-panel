@@ -8,7 +8,7 @@
         <a href="">Configurator</a>
       </div>
       <div class="h1">
-        Donutello Panel
+        Welkom terug!
       </div>
       <div class="h2">
         <a href="">Wachtwoord wijzigen</a>
