@@ -9,7 +9,7 @@
             <div class="status__trigger" @click="goToPage(donut)">
 
             </div>
-            <div class="status__trigger trigger2" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
+            <div class="status__trigger" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
 
             </div>
             <div class="status__trigger" @click="triggerConfirm()">
@@ -17,7 +17,10 @@
             </div>
           </div>
           <div class="show-status">
-            {{ statusMessage(donut.donut.status) }}
+            Status  
+            <div class="show-status__tekst">
+              : {{ statusMessage(donut.donut.status) }}
+            </div>
           </div>
         </div>
         <div class="second">
@@ -83,7 +86,7 @@ export default {
     },
     statusClass(status) {
       if (status === 0) {
-        return 'status__trigger--new triggerScale';
+        return 'status__trigger--new trigger2';
       } else if (status === 1) {
         return 'status__trigger--progress';
       } else if (status === 2) {
@@ -191,18 +194,5 @@ export default {
 </script>
   
 <style lang="scss">
-  .triggerScale{
-    animation : scale 1s ease-in-out infinite;
-  }
-  @keyframes scale {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+  
 </style>

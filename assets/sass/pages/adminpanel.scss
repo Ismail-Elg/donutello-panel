@@ -134,26 +134,41 @@ body {
 
     .trigger2{
         background-color: vars.$color-lemon;
+        animation : scale 1s ease-in-out infinite;
+        &:hover{
+            background-color: #ddd71b;
+        }
     }
 
-    .trigger2:hover{
-        background-color: #ddd71b;
-    }
+    @keyframes scale {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      
     .show-status {
-        background-color: vars.$color-heaven;
-        color: vars.$color-white;
+        color: vars.$color-strawberry;
         transition: all 0.3s ease-in-out;
         position: absolute;
-        bottom: 5px;
-        left: 5px;
+        bottom: 0px;
+        left: 15px;
         border-radius: 50px;
-        width: 40%;
         height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
         pointer-events: none;
         user-select: none;
+        font-weight: bold;
+        &__tekst{
+            text-transform: uppercase;
+        }
     }
 
     &__confirm {
