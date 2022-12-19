@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="nav__logout">
-      <router-link to="/login"><i class="fa fa-sign-out"></i></router-link>
+      <router-link to="/"><i class="fa fa-sign-out"></i></router-link>
     </div>
   </nav>
   <div class="panel">
