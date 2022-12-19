@@ -31,7 +31,7 @@
             <div class="status__trigger" :class="statusClass(donut.donut.status)" @click="updateStatus(donut)">
 
             </div>
-            <div class="status__trigger" @click="triggerConfirm()">
+            <div class="status__trigger" @click="triggerConfirm(donut)">
 
             </div>
           </div>
@@ -58,7 +58,7 @@
             </div>
           </div>
         </div>
-        <div class="panel__confirm">
+        <div class="panel__confirm" :style="{ display: (donut._id === clickedDonutId ? 'flex' : 'none') }">
           <h2>Are you sure you want to delete this donut?</h2>
           <div class="panel__confirm__input">
             <input type="button" value="Cancel" @click="cancelDeletion()">
@@ -74,7 +74,9 @@
 export default {
   data() {
     return {
-      donuts: []
+      donuts: [],
+      confirmDisplay: 'none',
+      clickedDonutId: null,
     }
   },
   created() {
@@ -166,30 +168,21 @@ export default {
         .then(data => {
           console.log(data);
 
-          this.donuts = this.donuts.map(d => {
-            if (d.id === donut.id) {
-              return data;
-            }
-            return d;
-          });
+  
 
           //refresh the page now that the status has been updated
-          location.reload();
+          // location.reload();
           
         })
         .catch(error => {
           console.error(error);
         });
     },
-    triggerConfirm() {
-
-      document.querySelector('.panel__confirm').style.animation = 'show 0.5s ease-in-out forwards';
-
-
-
+    triggerConfirm(donut) {
+      this.clickedDonutId = donut._id;  
     },
     cancelDeletion() {
-      document.querySelector('.panel__confirm').style.animation = 'hide 0.5s ease-in-out forwards';
+      this.clickedDonutId = null;
     },
     deleteDonut(donut) {
       fetch(`https://salmon-puffer-tie.cyclic.app/api/v1/donuts/${donut._id}`, {
@@ -201,7 +194,8 @@ export default {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          this.donuts = this.donuts.filter(d => d.id !== donut.id);
+          //refresh the page now that the donut has been deleted
+          location.reload();
         })
         .catch(error => {
           console.error(error);
@@ -211,7 +205,3 @@ export default {
 }
 
 </script>
-  
-<style lang="scss">
-  
-</style>
