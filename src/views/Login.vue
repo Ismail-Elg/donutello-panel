@@ -48,7 +48,6 @@
         const data = await response.json();
         //check if data status is success
         if (data.status === "success") {
-
         localStorage.setItem("token", data.token);
 
         this.$router.push("/admin");
