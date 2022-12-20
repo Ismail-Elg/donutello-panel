@@ -15,9 +15,14 @@ const router = createRouter({
             component: () => import("../views/Admin.vue"),
         },
         {
+            path: '/wijzigen',
+            name: 'Wijzigen',
+            component: () => import("../views/Wijzigen.vue"),
+        },
+        {
             path: '/donuts/:id',
             component: () => import("../views/Details.vue"),
-        }
+        },
     ],
 });
 

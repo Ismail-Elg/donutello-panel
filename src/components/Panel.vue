@@ -11,7 +11,7 @@
         Welkom terug!
       </div>
       <div class="h2">
-        <a href="">Wachtwoord wijzigen</a>
+        <p @click="wachtwoord()">Wachtwoord wijzigen</p>
       </div>
     </div>
     <div class="nav__logout">
@@ -204,6 +204,9 @@ export default {
     logout(){
       localStorage.removeItem('token');
       this.$router.push('/');
+    },
+    wachtwoord(){
+      this.$router.push('/wijzigen');
     },
   }
 }

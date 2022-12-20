@@ -37,11 +37,12 @@ nav{
             font-family: "Dosis", sans-serif;
             text-transform: uppercase;
             
-            a{
+            a, span, p{
                 text-decoration: none;
                 color: vars.$color-white;
                 &:hover{
                     color: vars.$color-lemon;
+                    cursor: pointer;
                 }
             }
         }
