@@ -49,6 +49,7 @@ nav{
     .fa{
         color: vars.$color-white;
         font-size: 3rem;
+        cursor: pointer;
         &:hover{
             color: vars.$color-lemon;
         }

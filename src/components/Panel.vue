@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="nav__logo">
-      <img src="logo2.svg" alt="logo2">
+      <img src="/images/logo2.svg" alt="logo2">
     </div>
     <div class="nav__title">
       <div class="h2">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="nav__logout">
-      <router-link to="/"><i class="fa fa-sign-out"></i></router-link>
+      <i class="fa fa-sign-out" @click="logout()"></i>
     </div>
   </nav>
   <div class="panel">
@@ -200,7 +200,11 @@ export default {
         .catch(error => {
           console.error(error);
         });
-    }
+    },
+    logout(){
+      localStorage.removeItem('token');
+      this.$router.push('/');
+    },
   }
 }
 

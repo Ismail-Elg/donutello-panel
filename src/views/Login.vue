@@ -48,11 +48,7 @@
         const data = await response.json();
         //check if data status is success
         if (data.status === "success") {
-          //save the token in local storage
-      
-      
-        
-        // Store token in local storage
+
         localStorage.setItem("token", data.token);
 
         this.$router.push("/admin");
