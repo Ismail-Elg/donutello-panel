@@ -5,7 +5,7 @@
     </div>
     <div class="nav__title">
       <div class="h2">
-        <a href="">Configurator</a>
+        <a href="https://donutello-frontend.netlify.app" target="_blank">Configurator</a>
       </div>
       <div class="h1">
         Welkom terug!
